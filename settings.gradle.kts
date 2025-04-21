@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "RestaurantReservation"
 include(":app")
- 
+include(":domain")
+include(":data")
