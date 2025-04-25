@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RestaurantReservation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="menu">Hello menu fragment</string>
+    <string name="book">Hello booking fragment</string>
+    <string name="profile">Hello profile fragment</string>
+    <string name="home">Hello home fragment</string>
 </resources>
