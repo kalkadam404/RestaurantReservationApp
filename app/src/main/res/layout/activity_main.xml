@@ -24,11 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
-        app:itemActiveIndicatorStyle="@android:color/transparent"
+        android:backgroundTint="@null"
+        app:itemActiveIndicatorStyle="@null"
+        app:itemBackground="@android:color/transparent"
+        app:itemRippleColor="@android:color/transparent"
         android:background="@color/white"
         app:itemIconTint="@drawable/bottom_nav_colors"
         app:itemTextColor="@drawable/bottom_nav_colors"
-        app:itemBackground="@color/nav_item_background"
-        app:itemRippleColor="@android:color/transparent"
-        app:backgroundTint="@android:color/transparent"/>
+    />
+
 </RelativeLayout>

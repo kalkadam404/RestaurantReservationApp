@@ -24,4 +24,34 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">#1F2937</item>
     </style>
+    <style name="profile_text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#374151</item>
+    </style>
+    <style name="BottomRoundedCard" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+    <style name="ActiveIndicatorStyle" parent="">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="NoShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">0dp</item>
+    </style>
+
+    <style name="welcome1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#1F2937</item>
+    </style>
+    <style name="mini_welcome1">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#4B5563</item>
+    </style>
+
+
 </resources>
