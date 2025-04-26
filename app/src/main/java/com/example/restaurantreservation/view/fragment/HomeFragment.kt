@@ -20,7 +20,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    // Inject ViewModel using Koin
     private val restaurantViewModel: RestaurantViewModel by viewModel()
 
     private lateinit var restaurantAdapter: RestaurantAdapter
@@ -82,7 +81,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupRestaurantsAlmatySection() {
-        restaurantAdapter = RestaurantAdapter(emptyList()) // Initially empty
+        restaurantAdapter = RestaurantAdapter() // <--- No emptyList() needed anymore
         binding.restaurantsAlmaty.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.restaurantsAlmaty.adapter = restaurantAdapter
@@ -101,7 +100,6 @@ class HomeFragment : Fragment() {
                 is RestaurantListUI.Empty -> {
                     // Show empty state view
                 }
-                else -> {}
             }
         }
     }
