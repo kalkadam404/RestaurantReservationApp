@@ -9,7 +9,7 @@ val RestaurantResponseMapper: (RestaurantResponse) -> Restaurant = { response ->
         id = response.id.toString(),
         imageRes = response.photo,
         name = response.name,
-        restaurantPlace = response.city.name.toString(),
+        restaurantPlace = response.city.name,
         opening = response.opening_time,
         closing = response.closing_time
     )

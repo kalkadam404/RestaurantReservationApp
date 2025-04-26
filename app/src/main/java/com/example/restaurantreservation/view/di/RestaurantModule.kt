@@ -19,11 +19,6 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 
-import org.koin.dsl.module
-
-private const val AUTHORIZATION_TOKEN =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiODJjMTcyZTdiZjY2NjA1MTY4ODFjNmExZWQ2MTZkZCIsIm5iZiI6MTczMDU0MjY1MS41NDc5MDIzLCJzdWIiOiI1ZjkxYjEzYTU1YzFmNDAwMzkyNzk5YTIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.JQN6zlqcT5VT4E8HxJz_sytmEU9lQELBsRU5s4SEFXk"
-
 val RestaurantModule = module {
     viewModel {
         RestaurantViewModel(
