@@ -6,7 +6,7 @@
     </style>
     <style name="name">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#32B768</item>
+        <item name="android:textColor">#263238</item>
     </style>
     <style name="second_text">
         <item name="android:textSize">16sp</item>

@@ -36,7 +36,7 @@
                 android:text="Салат Цезарь с Курицей"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/PriceDish"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="2690 ₸"
                 android:textStyle="bold"
-                android:textColor="@color/green"
+                android:textColor="@color/dark_main"
                 android:textSize="16sp"
                 android:layout_marginTop="4dp" />
         </LinearLayout>
