@@ -26,21 +26,41 @@
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <!-- Пропустить -->
         <TextView
             android:id="@+id/skipButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Пропустить"
+            android:layout_weight="1"
+            android:text="@string/Skip"
             android:textColor="#4B5563"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:gravity="start"/>
 
+        <!-- Точки -->
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/worm_dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/selected_color"
+            app:dotsStrokeColor="@color/dots_color"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="11dp"
+            app:dotsSpacing="3dp"
+            app:dotsStrokeWidth="2dp"
+            />
+
+        <!-- Стрелка -->
         <ImageView
             android:id="@+id/nextArrow"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:padding="12dp"
             android:src="@drawable/arrow_left2"
-            android:contentDescription="Далее"/>
+            android:contentDescription="@string/go"
+            android:scaleType="center"
+            android:layout_gravity="end"/>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

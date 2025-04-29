@@ -9,4 +9,5 @@
     <color name="unselected_color">#4B5563</color>
     <color name="nav_item_background">#00000000</color>
     <color name="red">#EE2E24</color>
+    <color name="dots_color">#E6E6E6</color>
 </resources>

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.view.adapter.OnboardingPagerAdapter
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 
 class OnboardingActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -21,8 +22,11 @@ class OnboardingActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.onboarding_viewpager)
         skipButton = findViewById(R.id.skipButton)
         nextArrow = findViewById(R.id.nextArrow)
-
         viewPager.adapter = OnboardingPagerAdapter(this)
+
+
+        val wormDotsIndicator = findViewById<WormDotsIndicator>(R.id.worm_dots_indicator)
+        wormDotsIndicator.attachTo(viewPager)
 
         skipButton.setOnClickListener {
             navigateToMainScreen()

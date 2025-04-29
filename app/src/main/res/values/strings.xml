@@ -11,4 +11,6 @@
     <string name="onboard_text3">Вы можете питаться в дорогих ресторанах с
 доступная цена</string>
     <string name="onboard_text1">Вам не придется далеко ходить, чтобы найти хороший ресторан,мы предоставили все рестораны, которые рядом с вами</string>
+    <string name="Skip">Пропустить</string>
+    <string name="go">Далее</string>
 </resources>
