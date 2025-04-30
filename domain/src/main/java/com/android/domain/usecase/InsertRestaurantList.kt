@@ -4,6 +4,7 @@ import com.android.domain.model.Restaurant
 import com.android.domain.repository.RestaurantRepository
 import com.android.domain.util.UseCase
 
+
 class InsertRestaurantList(
     private val repository: RestaurantRepository
 ) : UseCase<Unit, List<Restaurant>>() {
