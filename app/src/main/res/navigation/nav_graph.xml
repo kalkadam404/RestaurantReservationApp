@@ -25,4 +25,9 @@
         android:name="com.example.restaurantreservation.view.fragment.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.restaurantreservation.view.fragment.LoginFragment"
+        android:label="LoginFragment" />
+
 </navigation>

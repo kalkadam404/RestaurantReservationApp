@@ -1,0 +1,127 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Баннер -->
+        <ImageView
+            android:id="@+id/imageBanner"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/restaurant5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_round_res" />
+
+        <!-- Название -->
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Пиццерия Napoli"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/imageBanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Краткая инфа -->
+        <TextView
+            android:id="@+id/restaurantInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="⭐ 4.8  •  Итальянская кухня  •  1.2 км"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/restaurantName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Кнопка брони -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Забронировать столик"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/dark_main"
+            app:cornerRadius="12dp"
+            app:layout_constraintTop_toBottomOf="@id/restaurantInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Часы работы -->
+        <TextView
+            android:id="@+id/workingHours"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="⏰ Открыто: 10:00 - 22:00"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/bookButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Адрес -->
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="📍 Ул. Ленина, 12, Москва"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/workingHours"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Описание -->
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Napoli — это уютное место с настоящей итальянской атмосферой и печью на дровах."
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/address"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Меню секция -->
+        <TextView
+            android:id="@+id/menuTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Популярные блюда"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dishesRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/menuTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="false"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

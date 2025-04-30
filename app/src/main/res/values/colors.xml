@@ -3,9 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#F6F6F6</color>
-    <color name="green">#32B768</color>
+    <color name="dark_main">#263238</color>
     <color name="bottom_nav_background">#FFFFFFFF</color>
-    <color name="selected_color">#32B768</color>
+    <color name="selected_color">#263238</color>
     <color name="unselected_color">#4B5563</color>
     <color name="nav_item_background">#00000000</color>
+    <color name="red">#EE2E24</color>
+    <color name="dots_color">#E6E6E6</color>
 </resources>

@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">RestaurantReservation</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="menu">Hello menu fragment</string>
     <string name="book">Hello booking fragment</string>
     <string name="profile">Hello profile fragment</string>
     <string name="home">Hello home fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboard_text2">Теперь ешьте хорошо, не выходя из дома, вы можете
+выбрать любимую еду только с
+один клик</string>
+    <string name="onboard_text3">Вы можете питаться в дорогих ресторанах с
+доступная цена</string>
+    <string name="onboard_text1">Вам не придется далеко ходить, чтобы найти хороший ресторан,мы предоставили все рестораны, которые рядом с вами</string>
+    <string name="Skip">Пропустить</string>
+    <string name="go">Далее</string>
 </resources>
