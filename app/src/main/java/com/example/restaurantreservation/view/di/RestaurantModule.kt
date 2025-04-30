@@ -17,7 +17,7 @@ import com.example.restaurantreservation.view.viewmodels.RestaurantViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
-
+import com.android.data.util.network.AuthInterceptor
 
 import org.koin.dsl.module
 
@@ -73,7 +73,7 @@ val RestaurantModule = module {
         NetworkConfig(
             baseUrl = "http://10.0.2.2:8000/",
             timeout = 60L,
-            interceptors = listOf()
+            interceptors = listOf(get<AuthInterceptor>())
         )
     }
 
@@ -85,3 +85,5 @@ val RestaurantModule = module {
         RestaurantDatabase(androidContext())
     }
 }
+
+
