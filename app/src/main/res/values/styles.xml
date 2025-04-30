@@ -52,6 +52,15 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">#4B5563</item>
     </style>
+    <style name="TopRoundedCard" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="background">@color/dark_main</item>
+    </style>
+
 
 
 </resources>

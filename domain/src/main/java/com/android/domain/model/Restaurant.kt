@@ -1,5 +1,7 @@
 package com.android.domain.model
 
+import java.io.Serializable
+
 data class Restaurant(
     val id: String,
     val imageRes: String?,
@@ -7,5 +9,5 @@ data class Restaurant(
     val restaurantPlace: String,
     val opening: String?,
     val closing: String?,
-)
+): Serializable
 

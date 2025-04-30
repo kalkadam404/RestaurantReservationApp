@@ -8,7 +8,10 @@ import com.bumptech.glide.Glide
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.ItemRestaurantBinding
 
-class RestaurantAdapter(private var items: List<Restaurant>) :
+class RestaurantAdapter(
+    private var items: List<Restaurant>,
+    private val onItemClick: (Restaurant) -> Unit
+) :
     RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
 
     inner class RestaurantViewHolder(val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root)
@@ -31,6 +34,10 @@ class RestaurantAdapter(private var items: List<Restaurant>) :
                     .into(restaurantsImage)
             } else {
                 restaurantsImage.setImageResource(R.drawable.restaurant1)
+            }
+
+            root.setOnClickListener {
+                onItemClick(item)
             }
         }
     }

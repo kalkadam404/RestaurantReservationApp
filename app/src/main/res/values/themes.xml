@@ -1,21 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.RestaurantReservation" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-<!--        <item name="bottomNavigationStyle">@style/CustomBottomNavigationStyle</item>-->
-        <item name="android:statusBarColor">#FFFFFF</item> <!-- белый фон -->
-        <item name="android:windowLightStatusBar">true</item> <!-- тёмные иконки -->
     </style>
-
     <style name="Theme.RestaurantReservation" parent="Base.Theme.RestaurantReservation" >
         <item name="android:statusBarColor">@color/black</item>
     </style>
-
-    <style name="CustomBottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="itemIconTint">@drawable/bottom_nav_colors</item>
-        <item name="itemTextColor">@drawable/bottom_nav_colors</item>
-        <item name="itemRippleColor">@android:color/transparent</item>
-        <item name="backgroundTint">@color/bottom_nav_background</item>
-    </style>
 </resources>
+

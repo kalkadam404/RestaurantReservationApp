@@ -2,8 +2,6 @@ package com.example.restaurantreservation.view.activities
 
 import android.os.Bundle
 import android.util.Log
-
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -33,6 +31,14 @@ class MainActivity : AppCompatActivity() {
             binding.bottomNavigation.post {
                 NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
             }
+
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                when (destination.id) {
+                    R.id.restaurantDetailFragment -> binding.bottomNavigation.visibility = BottomNavigationView.GONE
+                    else -> binding.bottomNavigation.visibility = BottomNavigationView.VISIBLE
+                }
+            }
+
         } else {
             Log.e("MainActivity", "NavHostFragment is null")
         }

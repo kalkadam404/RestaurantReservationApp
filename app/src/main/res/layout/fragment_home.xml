@@ -14,7 +14,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:gravity="center_horizontal">
 
         <!-- Секция: Приветствие -->
@@ -25,7 +24,6 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:layout_marginBottom="14dp"
-            android:paddingHorizontal="0dp"
             >
 
             <LinearLayout
@@ -76,6 +74,7 @@
             android:layout_marginBottom="16dp"
             android:overScrollMode="never"
             android:clipToPadding="false"
+            android:clipChildren="false"
             android:scrollbars="none"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"/>

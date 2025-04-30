@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.domain.model.StoryCard
 import com.android.domain.model.DishItem
@@ -82,7 +83,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupRestaurantsAlmatySection() {
-        restaurantAdapter = RestaurantAdapter(emptyList()) // Initially empty
+        restaurantAdapter = RestaurantAdapter(emptyList()) { restaurant ->
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToRestaurantDetailFragment(restaurant)
+            findNavController().navigate(action)
+        }// Initially empty
         binding.restaurantsAlmaty.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.restaurantsAlmaty.adapter = restaurantAdapter
