@@ -1,12 +1,15 @@
 package com.example.restaurantreservation.view.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.data.model.RegisterRequest
 import com.android.domain.usecase.LoginUseCase
 import com.android.domain.usecase.RegisterUseCase
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class AuthViewModel(
     private val loginUseCase: LoginUseCase,
@@ -27,8 +30,9 @@ class AuthViewModel(
                 onSuccess = {
                     _loginResult.value = AuthUI.Success
                 },
-                onFailure = {
-                    _loginResult.value = AuthUI.Error(it.message)
+                onFailure = { error ->
+                    Log.e("AuthViewModel", "Login error: ${error.message}", error)
+                    _loginResult.value = AuthUI.Error(error.message)
                 }
             )
 
@@ -36,18 +40,32 @@ class AuthViewModel(
         }
     }
 
-    fun register(userData: Map<String, Any>) {
+    fun register(name: String, lastName: String, phoneNumber: String, email: String, password: String, passwordConfirm: String) {
         viewModelScope.launch {
             _registerResult.value = AuthUI.Loading(true)
 
-            registerUseCase.run(userData).fold(
-                onSuccess = {
-                    _registerResult.value = AuthUI.Success
-                },
-                onFailure = {
-                    _registerResult.value = AuthUI.Error(it.message)
-                }
-            )
+            try {
+                val userData = mapOf(
+                    "name" to name,
+                    "last_name" to lastName,
+                    "phone_number" to phoneNumber,
+                    "email" to email,
+                    "password" to password,
+                    "password_confirm" to passwordConfirm,
+                    "language" to "ru"
+                )
+
+                registerUseCase.run(userData).fold(
+                    onSuccess = {
+                        _registerResult.value = AuthUI.Success
+                    },
+                    onFailure = { error ->
+                        _registerResult.value = AuthUI.Error(error.message)
+                    }
+                )
+            } catch (e: Exception) {
+                _registerResult.value = AuthUI.Error(e.message)
+            }
 
             _registerResult.value = AuthUI.Loading(false)
         }

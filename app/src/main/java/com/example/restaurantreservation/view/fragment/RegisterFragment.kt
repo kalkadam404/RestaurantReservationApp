@@ -92,16 +92,22 @@ class RegisterFragment : Fragment() {
         return true
     }
 
+    // В методе registerUser():
     private fun registerUser() {
-        val userData = mapOf(
-            "name" to binding.nameEditText.text.toString().trim(),
-            "last_name" to binding.lastNameEditText.text.toString().trim(),
-            "phone_number" to binding.phoneEditText.text.toString().trim(),
-            "email" to binding.emailEditText.text.toString().trim(),
-            "password" to binding.passwordEditText.text.toString()
-        )
+        val name = binding.nameEditText.text.toString().trim()
+        val lastName = binding.lastNameEditText.text.toString().trim()
+        val phone = binding.phoneEditText.text.toString().trim()
+        val email = binding.emailEditText.text.toString().trim()
+        val password = binding.passwordEditText.text.toString()
+        val passwordConfirm = binding.confirmPasswordEditText.text.toString()
 
-        viewModel.register(userData)
+        viewModel.register(
+            name = name,
+            lastName = lastName,
+            phoneNumber = phone,
+            email = email,
+            password = password,
+            passwordConfirm = passwordConfirm)
     }
 
     private fun showLoading() {

@@ -1,6 +1,7 @@
 package com.android.data.source.remote.api
 import com.android.data.model.AuthRequest
 import com.android.data.model.AuthResponse
+import com.android.data.model.RegisterRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -10,5 +11,6 @@ interface AuthApi {
     suspend fun login(@Body request: AuthRequest): Response<AuthResponse>
 
     @POST("api/v1/users/register/")
-    suspend fun register(@Body request: Map<String, Any>): Response<Any>
+    suspend fun register(@Body request: RegisterRequest): Response<Any>
 }
+
