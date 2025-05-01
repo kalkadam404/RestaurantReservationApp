@@ -2,19 +2,17 @@ package com.example.restaurantreservation.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import com.android.domain.model.Restaurant
 import com.bumptech.glide.Glide
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.ItemRestaurantBinding
+import com.example.restaurantreservation.view.utils.RestaurantItemCallBack
 
-class RestaurantAdapter(
-    private var items: List<Restaurant>,
-    private val onItemClick: (Restaurant) -> Unit
-) :
-    RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
+class RestaurantAdapter :
+    ListAdapter<Restaurant, RestaurantAdapter.RestaurantViewHolder>(RestaurantItemCallBack()) {
 
-    inner class RestaurantViewHolder(val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class RestaurantViewHolder(val binding: ItemRestaurantBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
         val binding = ItemRestaurantBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -22,7 +20,7 @@ class RestaurantAdapter(
     }
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
-        val item = items[position]
+        val item = getItem(position)
 
         with(holder.binding) {
             restaurantsName.text = item.name
@@ -35,17 +33,10 @@ class RestaurantAdapter(
             } else {
                 restaurantsImage.setImageResource(R.drawable.restaurant1)
             }
-
-            root.setOnClickListener {
-                onItemClick(item)
-            }
         }
     }
 
-    override fun getItemCount(): Int = items.size
-
     fun updateItems(newItems: List<Restaurant>) {
-        items = newItems
-        notifyDataSetChanged()
+        submitList(newItems)
     }
 }

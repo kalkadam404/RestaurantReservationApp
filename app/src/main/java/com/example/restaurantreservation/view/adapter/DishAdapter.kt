@@ -1,34 +1,43 @@
 package com.example.restaurantreservation.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.android.domain.model.DishItem
+import androidx.recyclerview.widget.ListAdapter
+import com.android.domain.model.Product
+import com.bumptech.glide.Glide
 import com.example.restaurantreservation.R
+import com.example.restaurantreservation.databinding.ItemDishBinding
+import com.example.restaurantreservation.view.utils.ProductItemCallBack
 
-class DishAdapter(private val items: List<DishItem>) :
-    RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
+class DishAdapter :
+    ListAdapter<Product, DishAdapter.DishViewHolder>(ProductItemCallBack()) {
 
-    inner class DishViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image: ImageView = itemView.findViewById(R.id.dishImage)
-        val name: TextView = itemView.findViewById(R.id.dishName)
-        val place: TextView = itemView.findViewById(R.id.dishPlace)
-    }
+    inner class DishViewHolder(val binding: ItemDishBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_dish, parent, false)
-        return DishViewHolder(view)
+        val binding = ItemDishBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DishViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: DishViewHolder, position: Int) {
-        val item = items[position]
-        holder.image.setImageResource(item.imageRes)
-        holder.name.text = item.name
-        holder.place.text = item.place
+        val item = getItem(position)
+
+        with(holder.binding) {
+            dishName.text = item.ru_name
+            dishPlace.text = item.location
+
+
+            if (!item.imageUrl.isNullOrEmpty()) {
+                Glide.with(root.context)
+                    .load(item.imageUrl)
+                    .into(dishImage)
+            } else {
+                dishImage.setImageResource(R.drawable.restaurant1)
+            }
+        }
     }
 
-    override fun getItemCount(): Int = items.size
+    fun updateItems(newItems: List<Product>) {
+        submitList(newItems)
+    }
 }
