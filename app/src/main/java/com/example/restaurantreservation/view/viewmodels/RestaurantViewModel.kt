@@ -55,10 +55,10 @@ class RestaurantViewModel(
         viewModelScope.launch {
             insertRestaurantList.run(restaurantList).fold(
                 onSuccess = {
-                    println("SaveLocalSuccess: $it")
+                    println("SaveLocalSuccess1: $it")
                 },
                 onFailure = {
-                    println("SaveLocalFailed: $it")
+                    println("SaveLocalFailed1: $it")
                 }
             )
         }

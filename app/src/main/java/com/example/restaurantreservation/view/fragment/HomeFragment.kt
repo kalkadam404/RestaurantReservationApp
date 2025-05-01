@@ -10,10 +10,7 @@ import com.android.domain.model.StoryCard
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.FragmentHomeBinding
 import com.example.restaurantreservation.view.adapter.*
-import com.example.restaurantreservation.view.viewmodels.ProductListUI
-import com.example.restaurantreservation.view.viewmodels.ProductViewModel
-import com.example.restaurantreservation.view.viewmodels.RestaurantListUI
-import com.example.restaurantreservation.view.viewmodels.RestaurantViewModel
+import com.example.restaurantreservation.view.viewmodels.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -23,9 +20,11 @@ class HomeFragment : Fragment() {
 
     private val restaurantViewModel: RestaurantViewModel by viewModel()
     private val productViewModel: ProductViewModel by viewModel()
+    private val bannerViewModel: BannerViewModel by viewModel()
 
     private lateinit var restaurantAdapter: RestaurantAdapter
     private lateinit var dishAdapter: DishAdapter
+    private lateinit var bannerAdapter: BannerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,19 +55,32 @@ class HomeFragment : Fragment() {
         setupRestaurantsAlmatySection()
 
         restaurantViewModel.fetchRestaurantList()
-        productViewModel.fetchRestaurantList()
+        productViewModel.fetchProductList()
+        bannerViewModel.fetchBannerList()
     }
 
     private fun setupBannerSection() {
-        val banners = listOf(
-            BannerItem(R.drawable.banner_burger, "1+1 на бургеры"),
-            BannerItem(R.drawable.banner_pizza, "Только сегодня!")
-        )
-
-        val adapter = BannerAdapter(banners)
+        bannerAdapter = BannerAdapter()
         binding.bannerRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.bannerRecyclerView.adapter = adapter
+        binding.bannerRecyclerView.adapter = bannerAdapter
+
+        bannerViewModel.bannerListUI.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is BannerListUI.Success -> {
+                    bannerAdapter.updateItems(uiState.bannerList)
+                }
+                is BannerListUI.Loading -> {
+                    // Optional: show loading indicator
+                }
+                is BannerListUI.Error -> {
+                    // Optional: show error message
+                }
+                is BannerListUI.Empty -> {
+                    // Optional: show empty state
+                }
+            }
+        }
     }
 
     private fun setupPopularDishesSection() {

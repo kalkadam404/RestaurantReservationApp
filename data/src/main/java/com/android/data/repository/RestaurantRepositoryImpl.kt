@@ -20,10 +20,10 @@ class RestaurantRepositoryImpl (
             val localRestaurantList = localDataSource.fetchRestaurantList()
 
             if (localRestaurantList.isEmpty()) {
-                println("FetchType: Remote")
+                println("FetchType: Remote1")
                 remoteDataSource.fetchRestaurantList().results.map(RestaurantResponseMapper)
             } else {
-                println("FetchType: Local")
+                println("FetchType: Local1")
                 localRestaurantList.map(localRestaurantResponseMapper)
             }
         }

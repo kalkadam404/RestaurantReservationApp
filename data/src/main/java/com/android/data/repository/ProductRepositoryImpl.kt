@@ -20,10 +20,10 @@ class ProductRepositoryImpl (
             val localProductList = localDataSource.fetchProductList()
 
             if (localProductList.isEmpty()) {
-                println("FetchType: Remote")
+                println("FetchType: Remote2")
                 remoteDataSource.fetchProductList().results.map(ProductResponseMapper)
             } else {
-                println("FetchType: Local")
+                println("FetchType: Local2")
                 localProductList.map(localProductResponseMapper)
             }
         }
