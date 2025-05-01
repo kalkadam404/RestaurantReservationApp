@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
         productViewModel.productListUI.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is ProductListUI.Success -> {
-                    dishAdapter.updateItems(uiState.movieList)
+                    dishAdapter.updateItems(uiState.productList)
                 }
                 is ProductListUI.Loading -> {
                     // Optional: show loading indicator

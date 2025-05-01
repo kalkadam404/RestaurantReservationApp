@@ -68,6 +68,6 @@ class ProductViewModel(
 sealed interface ProductListUI {
     data class Loading(val isLoading: Boolean) : ProductListUI
     data class Error(val message: String? = null) : ProductListUI
-    data class Success(val movieList: List<Product>) : ProductListUI
+    data class Success(val productList: List<Product>) : ProductListUI
     data object Empty : ProductListUI
 }
