@@ -68,6 +68,6 @@ class RestaurantViewModel(
 sealed interface RestaurantListUI {
     data class Loading(val isLoading: Boolean) : RestaurantListUI
     data class Error(val message: String? = null) : RestaurantListUI
-    data class Success(val movieList: List<Restaurant>) : RestaurantListUI
+    data class Success(val restaurantList: List<Restaurant>) : RestaurantListUI
     data object Empty : RestaurantListUI
 }

@@ -104,7 +104,7 @@ class HomeFragment : Fragment() {
         restaurantViewModel.restaurantListUI.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is RestaurantListUI.Success -> {
-                    restaurantAdapter.updateItems(uiState.movieList)
+                    restaurantAdapter.updateItems(uiState.restaurantList)
                 }
                 is RestaurantListUI.Loading -> {
                     // Show loading spinner if needed
