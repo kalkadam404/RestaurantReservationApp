@@ -60,4 +60,9 @@
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="background">@color/dark_main</item>
     </style>
+
+    <style name="Widget.TextInputLayout.RoundedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearance">@style/ShapeAppearance.TextInputLayout.Rounded</item>
+    </style>
+
 </resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/dark_main" android:state_focused="true"/> <!-- Цвет при фокусе -->
+    <item android:color="#CCCCCC"/> <!-- Цвет по умолчанию -->
+</selector>

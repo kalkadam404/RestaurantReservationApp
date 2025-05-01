@@ -1,31 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:scrollbars="none"
+    android:background="@android:color/white">
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:hint="Email"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"/>
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:hint="Пароль"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:layout_marginTop="16dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_ic"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="Epicure"
+                android:layout_gravity="start"
+                android:layout_marginLeft="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                 />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/loginButton"
-        android:text="Войти"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"/>
-</LinearLayout>
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="Войдите в свой аккаунт"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <!-- Подзаголовок -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Введите свою электронную почту и пароль"
+            android:fontFamily="@font/inter_med"
+            android:textColor="#666666"
+            android:layout_marginTop="8dp" />
+
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Электронная почта"
+            style="@style/Widget.TextInputLayout.RoundedBox"
+            app:boxStrokeColor="@color/text_input_stroke"
+            app:boxBackgroundMode="outline"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plusjakartasans_medium"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Пароль -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.TextInputLayout.RoundedBox"
+            app:boxStrokeColor="@color/text_input_stroke"
+            app:boxBackgroundMode="outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            android:layout_marginTop="16dp"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plusjakartasans_medium"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Забыли пароль?"
+            android:layout_gravity="right"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/dark_main"
+            android:layout_marginTop="16dp"
+            />
+
+        <!-- Кнопка регистрации -->
+        <android.widget.Button
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Войти"
+            android:fontFamily="@font/inter_med"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_gradient" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="0.5dp"
+                android:background="#CCCCCC" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Или"
+                android:layout_marginHorizontal="12dp"
+                android:fontFamily="@font/inter_med"
+                android:textColor="#666666" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="0.5dp"
+                android:background="#CCCCCC" />
+        </LinearLayout>
+
+        <!-- Кнопка Google -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Продолжить с Google"
+            android:fontFamily="@font/inter_semibold"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="24dp"
+            app:icon="@drawable/google_ic"
+            app:iconTint="@null"
+            app:iconPadding="12dp"
+            app:iconGravity="textStart"
+            android:backgroundTint="@android:color/white"
+            app:cornerRadius="12dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#CCCCCC" />
+
+        <!-- Кнопка Facebook -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Продолжить с Facebook"
+            android:fontFamily="@font/inter_semibold"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="12dp"
+            app:icon="@drawable/facebook_ic"
+            app:iconTint="@null"
+            app:iconPadding="12dp"
+            app:iconGravity="textStart"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="12dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#CCCCCC"
+             />
+
+
+        <!-- Уже есть аккаунт -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нет аккаунта?"
+                android:textColor="#888888"
+                android:fontFamily="@font/inter_med"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Зарегистрируйтесь"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_med"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
