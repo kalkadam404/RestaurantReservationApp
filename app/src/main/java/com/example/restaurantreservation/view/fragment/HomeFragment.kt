@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.domain.model.StoryCard
-import com.android.domain.model.DishItem
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.FragmentHomeBinding
 import com.example.restaurantreservation.view.adapter.*
+import com.example.restaurantreservation.view.viewmodels.ProductListUI
+import com.example.restaurantreservation.view.viewmodels.ProductViewModel
 import com.example.restaurantreservation.view.viewmodels.RestaurantListUI
 import com.example.restaurantreservation.view.viewmodels.RestaurantViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,10 +21,11 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    // Inject ViewModel using Koin
     private val restaurantViewModel: RestaurantViewModel by viewModel()
+    private val productViewModel: ProductViewModel by viewModel()
 
     private lateinit var restaurantAdapter: RestaurantAdapter
+    private lateinit var dishAdapter: DishAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +56,7 @@ class HomeFragment : Fragment() {
         setupRestaurantsAlmatySection()
 
         restaurantViewModel.fetchRestaurantList()
+        productViewModel.fetchRestaurantList()
     }
 
     private fun setupBannerSection() {
@@ -70,24 +72,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupPopularDishesSection() {
-        val dishes = listOf(
-            DishItem(R.drawable.plov, "Плов с курицой", "Max Plov & Рестораны"),
-            DishItem(R.drawable.shashlyk, "Шашлык люля", "Max Plov & Рестораны"),
-            DishItem(R.drawable.pizza_max, "Пицца грибы", "Alzans house")
-        )
-
-        val adapter = DishAdapter(dishes)
+        dishAdapter = DishAdapter()
         binding.popularDishesRecycler.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.popularDishesRecycler.adapter = adapter
+        binding.popularDishesRecycler.adapter = dishAdapter
+
+        productViewModel.productListUI.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is ProductListUI.Success -> {
+                    dishAdapter.updateItems(uiState.movieList)
+                }
+                is ProductListUI.Loading -> {
+                    // Optional: show loading indicator
+                }
+                is ProductListUI.Error -> {
+                    // Optional: show error message
+                }
+                is ProductListUI.Empty -> {
+                    // Optional: show empty state
+                }
+            }
+        }
     }
 
     private fun setupRestaurantsAlmatySection() {
-        restaurantAdapter = RestaurantAdapter(emptyList()) { restaurant ->
-            val action = HomeFragmentDirections
-                .actionHomeFragmentToRestaurantDetailFragment(restaurant)
-            findNavController().navigate(action)
-        }// Initially empty
+        restaurantAdapter = RestaurantAdapter()
         binding.restaurantsAlmaty.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.restaurantsAlmaty.adapter = restaurantAdapter
@@ -106,7 +115,6 @@ class HomeFragment : Fragment() {
                 is RestaurantListUI.Empty -> {
                     // Show empty state view
                 }
-                else -> {}
             }
         }
     }
