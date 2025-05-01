@@ -11,6 +11,7 @@
 
     <item
         android:id="@+id/item_none"
+        android:enabled="false"
         android:title=""
         />
 
@@ -20,6 +21,6 @@
         android:title="Бронь" />
     <item
         android:id="@+id/profile_fragment"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/user_icon"
         android:title="Профиль" />
 </menu>

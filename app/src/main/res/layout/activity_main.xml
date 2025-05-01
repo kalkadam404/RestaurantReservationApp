@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/gray"
     tools:context=".view.activities.MainActivity"
+    android:fitsSystemWindows="true"
     >
 
 
@@ -15,8 +15,6 @@
         app:defaultNavHost="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="60dp"
         app:navGraph="@navigation/nav_graph"/>
 
 <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
@@ -40,10 +38,10 @@
         android:layout_height="wrap_content"
         app:fabAlignmentMode="center"
         app:fabAnchorMode="cradle"
-        app:fabCradleMargin="14dp"
+        app:fabCradleMargin="20dp"
         app:fabCradleVerticalOffset="0dp"
         android:backgroundTint="@color/white"
-        app:fabCradleRoundedCornerRadius="6dp"
+        app:fabCradleRoundedCornerRadius="20dp"
         android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -54,17 +52,22 @@
             android:background="@android:color/transparent"
             app:menu="@menu/bottom_nav_menu"
             app:labelVisibilityMode="labeled"
+            app:itemRippleColor="@color/nav_item_background"
+            app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
             android:elevation="0dp"
             />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/bottomAppBar"
         android:backgroundTint="@color/white"
-        android:background="@drawable/bg_round_gray"
+        app:shapeAppearanceOverlay="@style/fab_3_rounded"
         android:src="@drawable/qr"
+        app:rippleColor="@color/transparent"
+        app:maxImageSize="35dp"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
