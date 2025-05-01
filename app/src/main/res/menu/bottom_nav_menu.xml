@@ -8,6 +8,12 @@
         android:id="@+id/menu_fragment"
         android:icon="@drawable/fork"
         android:title="Меню" />
+
+    <item
+        android:id="@+id/item_none"
+        android:title=""
+        />
+
     <item
         android:id="@+id/book_fragment"
         android:icon="@drawable/booking"

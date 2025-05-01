@@ -47,6 +47,11 @@ class LoginFragment : Fragment() {
         binding.registerTextView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
+        binding.backTo.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
+
     }
 
     private fun setupObservers() {

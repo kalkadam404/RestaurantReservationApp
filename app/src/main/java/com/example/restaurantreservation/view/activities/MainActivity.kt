@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
 //        navController = navHostFragment.navController
 
+//        val bottomNavigationView = binding.bottomNavigation
+//        val badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.book_fragment)
+//        badgeDrawable.setNumber(4)
+//        badgeDrawable.setVisible(true)
+
         if (navHostFragment != null) {
             navController = navHostFragment.navController
             binding.bottomNavigation.post {
