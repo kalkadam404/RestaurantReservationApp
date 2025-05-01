@@ -55,10 +55,10 @@ class RestaurantViewModel(
         viewModelScope.launch {
             insertRestaurantList.run(restaurantList).fold(
                 onSuccess = {
-                    println("SaveLocalSuccess: $it")
+                    println("SaveLocalSuccess1: $it")
                 },
                 onFailure = {
-                    println("SaveLocalFailed: $it")
+                    println("SaveLocalFailed1: $it")
                 }
             )
         }
@@ -68,6 +68,6 @@ class RestaurantViewModel(
 sealed interface RestaurantListUI {
     data class Loading(val isLoading: Boolean) : RestaurantListUI
     data class Error(val message: String? = null) : RestaurantListUI
-    data class Success(val movieList: List<Restaurant>) : RestaurantListUI
+    data class Success(val restaurantList: List<Restaurant>) : RestaurantListUI
     data object Empty : RestaurantListUI
 }

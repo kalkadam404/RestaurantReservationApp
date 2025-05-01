@@ -1,6 +1,7 @@
 package com.example.restaurantreservation.view
 
 import android.app.Application
+import com.example.restaurantreservation.view.di.BannerModule
 import com.example.restaurantreservation.view.di.ProductModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -13,7 +14,7 @@ class App: Application() {
 
         startKoin {
             androidContext(this@App)
-            modules(listOf(RestaurantModule, ProductModule))
+            modules(listOf(RestaurantModule, ProductModule, BannerModule))
         }
     }
 }

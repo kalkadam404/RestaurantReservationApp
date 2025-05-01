@@ -1,33 +1,41 @@
 package com.example.restaurantreservation.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
+import com.android.domain.model.Banner
+import com.bumptech.glide.Glide
 import com.example.restaurantreservation.R
+import com.example.restaurantreservation.databinding.ItemBannerBinding
+import com.example.restaurantreservation.view.utils.BannerItemCallBack
 
-data class BannerItem(val imageRes: Int, val text: String)
+class BannerAdapter :
+    ListAdapter<Banner, BannerAdapter.BannerViewHolder>(BannerItemCallBack()) {
 
-class BannerAdapter(private val items: List<BannerItem>) :
-    RecyclerView.Adapter<BannerAdapter.BannerViewHolder>() {
-
-    inner class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image: ImageView = itemView.findViewById(R.id.bannerImage)
-        val text: TextView = itemView.findViewById(R.id.bannerText)
-    }
+    inner class BannerViewHolder(val binding: ItemBannerBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
-        return BannerViewHolder(view)
+        val binding = ItemBannerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BannerViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: BannerViewHolder, position: Int) {
-        val item = items[position]
-        holder.image.setImageResource(item.imageRes)
-        holder.text.text = item.text
+        val item = getItem(position)
+
+        with(holder.binding) {
+            bannerText.text = item.name
+
+            if (!item.imageUrl.isNullOrEmpty()) {
+                Glide.with(root.context)
+                    .load(item.imageUrl)
+                    .into(bannerImage)
+            } else {
+                bannerImage.setImageResource(R.drawable.restaurant1)
+            }
+        }
     }
 
-    override fun getItemCount(): Int = items.size
+    fun updateItems(newItems: List<Banner>) {
+        submitList(newItems)
+    }
 }

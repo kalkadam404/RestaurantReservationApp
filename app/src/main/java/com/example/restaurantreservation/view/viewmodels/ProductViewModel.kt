@@ -17,7 +17,7 @@ class ProductViewModel(
     private val _productListUI = MutableLiveData<ProductListUI>()
     val productListUI: LiveData<ProductListUI> = _productListUI
 
-    fun fetchRestaurantList() {
+    fun fetchProductList() {
         viewModelScope.launch {
             _productListUI.value = ProductListUI.Loading(true)
 
@@ -55,10 +55,10 @@ class ProductViewModel(
         viewModelScope.launch {
             insertProductList.run(productList).fold(
                 onSuccess = {
-                    println("SaveLocalSuccess: $it")
+                    println("SaveLocalSuccess2: $it")
                 },
                 onFailure = {
-                    println("SaveLocalFailed: $it")
+                    println("SaveLocalFailed2: $it")
                 }
             )
         }
