@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.android.data.model.ProductEntity
 import com.android.data.model.RestaurantEntity
+import com.android.data.source.local.dao.ProductDao
 import com.android.data.source.local.dao.RestaurantDao
 
-@Database(entities = [RestaurantEntity::class], version = 2)
+@Database(entities = [RestaurantEntity::class, ProductEntity::class], version = 3)
 internal abstract class AppDatabase : RoomDatabase() {
     abstract fun restaurantDao(): RestaurantDao
+    abstract fun productDao(): ProductDao
 }
 
 private const val DATABASE_NAME = "restaurant_database"
@@ -18,6 +21,9 @@ class DatabaseProvider internal constructor(private val database: AppDatabase) {
 
     val restaurantDao: RestaurantDao
         get() = database.restaurantDao()
+
+    val productDao: ProductDao
+        get() = database.productDao()
 }
 
 fun RestaurantDatabase(context: Context): DatabaseProvider {
