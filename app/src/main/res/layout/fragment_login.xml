@@ -29,8 +29,7 @@
                 android:layout_gravity="start"
                 android:layout_marginLeft="8dp"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                 />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Заголовок -->
@@ -52,18 +51,18 @@
             android:textColor="#666666"
             android:layout_marginTop="8dp" />
 
-        <!-- Email -->
+        <!-- Телефон -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Электронная почта"
+            android:hint="Электронная почта или телефон"
             style="@style/Widget.TextInputLayout.RoundedBox"
             app:boxStrokeColor="@color/text_input_stroke"
             app:boxBackgroundMode="outline"
             android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailEditText"
+                android:id="@+id/phoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/plusjakartasans_medium"
@@ -96,10 +95,18 @@
             android:layout_gravity="right"
             android:fontFamily="@font/inter_semibold"
             android:textColor="@color/dark_main"
-            android:layout_marginTop="16dp"
-            />
+            android:layout_marginTop="16dp" />
 
-        <!-- Кнопка регистрации -->
+        <!-- Прогресс-бар -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <!-- Кнопка входа -->
         <android.widget.Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
@@ -175,8 +182,7 @@
             android:backgroundTint="@color/white"
             app:cornerRadius="12dp"
             app:strokeWidth="1dp"
-            app:strokeColor="#CCCCCC"
-             />
+            app:strokeColor="#CCCCCC" />
 
 
         <!-- Уже есть аккаунт -->
@@ -196,7 +202,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/textRegister"
+                android:id="@+id/registerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" Зарегистрируйтесь"

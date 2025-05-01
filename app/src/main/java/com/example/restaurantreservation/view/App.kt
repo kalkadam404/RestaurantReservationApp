@@ -6,7 +6,7 @@ import com.example.restaurantreservation.view.di.ProductModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import com.example.restaurantreservation.view.di.RestaurantModule
-
+import com.example.restaurantreservation.view.di.AuthModule
 
 class App: Application() {
     override fun onCreate() {
@@ -14,7 +14,7 @@ class App: Application() {
 
         startKoin {
             androidContext(this@App)
-            modules(listOf(RestaurantModule, ProductModule, BannerModule))
+            modules(listOf(RestaurantModule, ProductModule, BannerModule, AuthModule))
         }
     }
 }

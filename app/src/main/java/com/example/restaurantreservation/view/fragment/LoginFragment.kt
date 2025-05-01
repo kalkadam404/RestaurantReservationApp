@@ -10,11 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.FragmentLoginBinding
+import com.example.restaurantreservation.view.viewmodels.AuthUI
+import com.example.restaurantreservation.view.viewmodels.AuthViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: AuthViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,32 +31,51 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupObservers()
+
         binding.loginButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
+            val phoneNumber = binding.phoneEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                login(email, password)
+            if (phoneNumber.isNotEmpty() && password.isNotEmpty()) {
+                viewModel.login(phoneNumber, password)
             } else {
                 Toast.makeText(requireContext(), "Пожалуйста, заполните все поля", Toast.LENGTH_SHORT).show()
             }
         }
 
-        binding.textRegister.setOnClickListener {
+        binding.registerTextView.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
-    private fun login(email: String, password: String) {
-        // Здесь пока мок-авторизация. Потом сюда подключим API
-        if (email == "test@example.com" && password == "password") {
-            val sharedPref = requireContext().getSharedPreferences("auth", Context.MODE_PRIVATE)
-            sharedPref.edit().putBoolean("is_logged_in", true).apply()
-            Toast.makeText(requireContext(), "Успешный вход!", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.profile_fragment) // Вернуться обратно на профиль
-        } else {
-            Toast.makeText(requireContext(), "Неверные данные", Toast.LENGTH_SHORT).show()
+    private fun setupObservers() {
+        viewModel.loginResult.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is AuthUI.Success -> {
+                    hideLoading()
+                    Toast.makeText(requireContext(), "Успешный вход!", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                }
+                is AuthUI.Error -> {
+                    hideLoading()
+                    Toast.makeText(requireContext(), result.message ?: "Ошибка входа", Toast.LENGTH_LONG).show()
+                }
+                is AuthUI.Loading -> {
+                    if (result.isLoading) showLoading() else hideLoading()
+                }
+            }
         }
+    }
+
+    private fun showLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.loginButton.isEnabled = false
+    }
+
+    private fun hideLoading() {
+        binding.progressBar.visibility = View.GONE
+        binding.loginButton.isEnabled = true
     }
 
     override fun onDestroyView() {
