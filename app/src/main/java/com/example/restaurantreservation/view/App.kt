@@ -8,6 +8,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import com.example.restaurantreservation.view.di.RestaurantModule
 import com.example.restaurantreservation.view.di.AuthModule
+import com.example.restaurantreservation.view.di.ProductTypeModule
 import com.example.restaurantreservation.view.di.ReservationModule
 
 class App: Application() {
@@ -16,7 +17,14 @@ class App: Application() {
 
         startKoin {
             androidContext(this@App)
-            modules(listOf(RestaurantModule, ProductModule, BannerModule, AuthModule, ReservationModule))
+            modules(listOf(RestaurantModule,
+                ProductModule,
+                ProductTypeModule,
+                BannerModule,
+                AuthModule,
+                ReservationModule,
+                )
+            )
         }
         FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
     }

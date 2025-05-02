@@ -5,7 +5,7 @@ import com.android.data.model.restaurant.RestaurantDetailResponse
 data class ProductResponse (
     val id: Int,
     val restaurant_details: RestaurantDetailResponse,
-    val menu_type_details: MenuTypeResponse,
+    val menu_type_details: ProductTypeResponse,
     val name_ru: String?,
     val name_kz: String?,
     val image: String?,

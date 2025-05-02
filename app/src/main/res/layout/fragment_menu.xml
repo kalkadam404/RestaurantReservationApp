@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,7 +19,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="8dp"
-
             android:src="@drawable/icon_left"
             android:contentDescription="Назад"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,6 @@
             android:id="@+id/searchIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:padding="8dp"
             android:src="@drawable/search_icon"
             android:contentDescription="Поиск"
@@ -50,94 +49,28 @@
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Categories -->
-    <HorizontalScrollView
+    <!-- Category RecyclerView (horizontal list of buttons) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productTypeRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="8dp"
         android:paddingStart="12dp"
+        android:clipToPadding="false"
         android:overScrollMode="never"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:contentDescription="Список категорий"
+        tools:listitem="@layout/item_category_button" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <!-- Пример кнопки -->
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Салаты"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
-                android:textColor="@color/dark_main"
-                app:strokeColor="@color/dark_main"
-                app:strokeWidth="1dp"
-                app:cornerRadius="50dp" />
-
-            <!-- Повтори кнопки по числу категорий -->
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Супы"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
-                app:cornerRadius="50dp" />
-
-            <!-- и т.д. -->
-        </LinearLayout>
-    </HorizontalScrollView>
-
+    <!-- Main menu items RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menuRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
         android:clipToPadding="false"
-        android:background="@color/gray"/>
-
-    <!-- Контент -->
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:fillViewport="true">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:padding="16dp">-->
-
-<!--            &lt;!&ndash; Заголовок секции &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Салаты"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="18sp"-->
-<!--                android:layout_marginBottom="8dp" />-->
-
-<!--            &lt;!&ndash; Карточки блюд &ndash;&gt;-->
-<!--            <include layout="@layout/item_dish_category" />-->
-<!--            <include layout="@layout/item_dish_category" />-->
-<!--            <include layout="@layout/item_dish_category" />-->
-
-<!--            &lt;!&ndash; Заголовок следующей секции &ndash;&gt;-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Супы"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="18sp"-->
-<!--                android:layout_marginTop="24dp"-->
-<!--                android:layout_marginBottom="8dp" />-->
-
-<!--            <include layout="@layout/item_dish_category" />-->
-<!--            <include layout="@layout/item_dish_category" />-->
-<!--        </LinearLayout>-->
-<!--    </ScrollView>-->
+        android:background="@color/gray"
+        android:contentDescription="Список блюд"
+        tools:listitem="@layout/item_dish_category" />
 
 </LinearLayout>
