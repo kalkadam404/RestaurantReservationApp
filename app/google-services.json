@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "902285561755",
+    "project_id": "daulet-tualet",
+    "storage_bucket": "daulet-tualet.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902285561755:android:a2731432fae2342a9a1b3e",
+        "android_client_info": {
+          "package_name": "com.example.restaurantreservation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChHPxQD5LK0593FFh0TxCVpZ_6ekLvJrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
