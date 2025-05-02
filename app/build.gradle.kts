@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+
 }
 
 android {
@@ -49,6 +50,8 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(libs.androidx.cardview)
+
+
     // Jetpack Compose
     implementation("androidx.compose.ui:ui:1.5.0")
     implementation("androidx.compose.material3:material3:1.1.0")
@@ -56,11 +59,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
 
-// Coil для загрузки изображений
+    // Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
-
-//    Nav Graph Implementation
+    // Nav Graph
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
@@ -70,15 +72,18 @@ dependencies {
     implementation("com.tbuonomo:dotsindicator:5.1.0")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    // ViewModel utilities for Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    // LiveData
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    implementation (libs.glide)
-    annotationProcessor (libs.compiler)
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 
+    // === TESTS ===
     testImplementation(libs.junit)
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("io.mockk:mockk:1.13.7")
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

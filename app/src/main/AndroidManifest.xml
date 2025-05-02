@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <application
@@ -30,9 +29,44 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name=".view.activities.OnboardingActivity" />
-        <activity android:name=".view.activities.MainActivity" />
+
+        <activity
+            android:name=".view.activities.MainActivity"
+            android:exported="true">
+            <!-- Диплинк 1: Открытие конкретного ресторана -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="restaurantapp"
+                    android:host="restaurant"
+                    android:pathPattern="/details/.*" />
+            </intent-filter>
+
+            <!-- Диплинк 2: Бронирование столика -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="restaurantapp"
+                    android:host="booking"
+                    android:pathPattern="/new/.*" />
+            </intent-filter>
+
+            <!-- Диплинк 3: Просмотр меню ресторана -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="restaurantapp"
+                    android:host="menu"
+                    android:pathPattern="/view/.*" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

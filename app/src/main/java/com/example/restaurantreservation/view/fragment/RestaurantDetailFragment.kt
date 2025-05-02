@@ -20,11 +20,13 @@ class RestaurantDetailFragment : Fragment() {
     private var _binding: FragmentRestaurantDetailBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             restaurant = RestaurantDetailFragmentArgs.fromBundle(it).restaurant
+        } ?: run {
+            // Обработка случая, если restaurant не был передан
+            throw IllegalArgumentException("Restaurant argument is required")
         }
     }
 
@@ -39,6 +41,7 @@ class RestaurantDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Пример статических изображений для карусели
         val images = listOf(
             R.drawable.restaurant_full1,
             R.drawable.restaurant_full2,
@@ -52,8 +55,9 @@ class RestaurantDetailFragment : Fragment() {
         val springDotsIndicator = binding.springDotsIndicator
         springDotsIndicator.attachTo(viewPager)
 
+        // Обработчик нажатия кнопки "Назад"
         binding.btnBack.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            activity?.onBackPressed() // безопасный вызов onBackPressed
         }
     }
 
@@ -61,6 +65,4 @@ class RestaurantDetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
