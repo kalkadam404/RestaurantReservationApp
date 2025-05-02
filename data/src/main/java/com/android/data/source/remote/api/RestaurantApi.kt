@@ -1,8 +1,9 @@
 package com.android.data.source.remote.api
 
-import com.android.data.model.BannerResponse
-import com.android.data.model.ProductListResponse
-import com.android.data.model.RestaurantListResponse
+import com.android.data.model.banner.BannerResponse
+import com.android.data.model.product.ProductListResponse
+import com.android.data.model.reservation.ReservationListResponse
+import com.android.data.model.restaurant.RestaurantListResponse
 import retrofit2.http.GET
 
 interface RestaurantApi {
@@ -15,8 +16,8 @@ interface RestaurantApi {
     @GET("api/v1/products/menu-items/")
     suspend fun fetchProductsList(): ProductListResponse
 
-    @GET("api/v1/room")
-    suspend fun fetchRoomList(): RestaurantListResponse
+    @GET("api/v1/room/reservations/")
+    suspend fun fetchReservationList(): ReservationListResponse
 
 
 

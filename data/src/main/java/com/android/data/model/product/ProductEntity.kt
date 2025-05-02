@@ -1,4 +1,4 @@
-package com.android.data.model
+package com.android.data.model.product
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey

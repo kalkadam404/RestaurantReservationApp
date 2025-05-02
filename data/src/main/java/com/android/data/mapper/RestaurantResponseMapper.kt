@@ -1,7 +1,7 @@
 package com.android.data.mapper
 
-import com.android.data.model.RestaurantEntity
-import com.android.data.model.RestaurantResponse
+import com.android.data.model.restaurant.RestaurantEntity
+import com.android.data.model.restaurant.RestaurantResponse
 import com.android.domain.model.Restaurant
 
 val RestaurantResponseMapper: (RestaurantResponse) -> Restaurant = { response ->

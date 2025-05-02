@@ -1,4 +1,4 @@
-package com.android.data.model
+package com.android.data.model.city
 
 data class CityResponse (
     val id: Int,

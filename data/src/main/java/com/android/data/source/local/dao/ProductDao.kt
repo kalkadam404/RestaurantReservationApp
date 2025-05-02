@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.android.data.model.ProductEntity
+import com.android.data.model.product.ProductEntity
 
 @Dao
 interface ProductDao {

@@ -1,7 +1,7 @@
 package com.android.data.mapper
 
-import com.android.data.model.ProductEntity
-import com.android.data.model.ProductResponse
+import com.android.data.model.product.ProductEntity
+import com.android.data.model.product.ProductResponse
 import com.android.domain.model.Product
 
 val ProductResponseMapper: (ProductResponse) -> Product = { response ->

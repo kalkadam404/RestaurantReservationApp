@@ -1,4 +1,6 @@
-package com.android.data.model
+package com.android.data.model.product
+
+import com.android.data.model.restaurant.RestaurantDetailResponse
 
 data class ProductResponse (
     val id: Int,
@@ -14,5 +16,5 @@ data class ProductResponse (
     val fats: Float?,
     val carbohydrates: Float?,
     val price: Float?,
-    val is_available: Boolean?,
+    val is_available: Boolean?
     )

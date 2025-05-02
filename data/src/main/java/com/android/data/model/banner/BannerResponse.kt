@@ -1,4 +1,4 @@
-package com.android.data.model
+package com.android.data.model.banner
 
 data class BannerResponse (
     val id: Int,
