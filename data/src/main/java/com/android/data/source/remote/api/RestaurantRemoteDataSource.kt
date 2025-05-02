@@ -9,4 +9,6 @@ class RestaurantRemoteDataSource(private val api: RestaurantApi) {
     suspend fun fetchAdvertisementList() = api.fetchAdvertisementList()
 
     suspend fun fetchReservationList() = api.fetchReservationList()
+
+    suspend fun fetchProductTypeList() = api.fetchProductTypeList()
 }

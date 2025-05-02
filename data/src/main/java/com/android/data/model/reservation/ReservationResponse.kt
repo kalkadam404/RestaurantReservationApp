@@ -1,6 +1,6 @@
 package com.android.data.model.reservation
 
-import com.android.data.model.product.MenuItemsResponse
+import com.android.data.model.product.ProductItemsResponse
 import com.android.data.model.restaurant.RestaurantDetailResponse2
 
 data class ReservationResponse(
@@ -19,5 +19,5 @@ data class ReservationResponse(
     val special_requests: String?,
     val created_at: String?,
     val updated_at: String?,
-    val menu_items: List<MenuItemsResponse>
+    val menu_items: List<ProductItemsResponse>
 )

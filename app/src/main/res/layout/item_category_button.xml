@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/productTypeName"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_marginEnd="8dp"
+    android:text="Салаты"
+    android:textColor="@color/dark_main"
+    app:strokeColor="@color/dark_main"
+    app:strokeWidth="1dp"
+    app:cornerRadius="50dp"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
