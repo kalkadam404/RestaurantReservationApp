@@ -2,6 +2,7 @@ package com.example.restaurantreservation.view.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.FragmentLoginBinding
+import com.example.restaurantreservation.view.activities.MainActivity
 import com.example.restaurantreservation.view.viewmodels.AuthUI
 import com.example.restaurantreservation.view.viewmodels.AuthViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -49,7 +51,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.backTo.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_home_fragment)
         }
 
     }
@@ -60,7 +62,10 @@ class LoginFragment : Fragment() {
                 is AuthUI.Success -> {
                     hideLoading()
                     Toast.makeText(requireContext(), "Успешный вход!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    val sharedPref = requireContext().getSharedPreferences("auth", Context.MODE_PRIVATE)
+                    sharedPref.edit().putBoolean("is_logged_in", true).apply()
+                    Log.d("LoginFragment", "Login success, navigating...")
+                    findNavController().navigate(R.id.action_loginFragment_to_profile_fragment)
                 }
                 is AuthUI.Error -> {
                     hideLoading()

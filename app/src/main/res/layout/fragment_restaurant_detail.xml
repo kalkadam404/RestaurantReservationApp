@@ -15,6 +15,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+        android:id="@+id/spring_dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dampingRatio="0.5"
+        app:dotsColor="@color/selected_color"
+        app:dotsStrokeColor="@color/dots_color"
+        app:dotsCornerRadius="8dp"
+        app:dotsSize="10dp"
+        app:dotsSpacing="6dp"
+        app:dotsStrokeWidth="2dp"
+        app:stiffness="300"
+
+        app:layout_constraintBottom_toTopOf="@id/contentCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginBottom="10dp"/>
+
+
     <!-- Back Button -->
     <ImageView
         android:id="@+id/btnBack"
@@ -31,6 +51,7 @@
 
     <!-- Content Card -->
     <FrameLayout
+        android:id="@+id/contentCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="-32dp"

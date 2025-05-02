@@ -59,4 +59,5 @@ class MainActivity : AppCompatActivity() {
             Log.e("MainActivity", "NavHostFragment is null")
         }
     }
+
 }

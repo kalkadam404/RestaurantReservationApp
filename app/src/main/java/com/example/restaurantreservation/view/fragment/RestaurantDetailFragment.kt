@@ -5,14 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 import com.android.domain.model.Restaurant
 import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.FragmentRestaurantDetailBinding
 import com.example.restaurantreservation.view.adapter.ImageCarouselAdapter
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 
 class RestaurantDetailFragment : Fragment() {
 
     private lateinit var restaurant: Restaurant
+    private lateinit var viewPager: ViewPager2
 
     private var _binding: FragmentRestaurantDetailBinding? = null
     private val binding get() = _binding!!
@@ -44,6 +47,10 @@ class RestaurantDetailFragment : Fragment() {
 
         val imageCarouselAdapter = ImageCarouselAdapter(images)
         binding.imageCarousel.adapter = imageCarouselAdapter
+
+        viewPager = binding.imageCarousel
+        val springDotsIndicator = binding.springDotsIndicator
+        springDotsIndicator.attachTo(viewPager)
 
         binding.btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
