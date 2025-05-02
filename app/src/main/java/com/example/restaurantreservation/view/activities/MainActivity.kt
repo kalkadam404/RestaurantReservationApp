@@ -3,16 +3,17 @@ package com.example.restaurantreservation.view.activities
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.restaurantreservation.databinding.ActivityMainBinding
-
 import com.example.restaurantreservation.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.android.material.badge.BadgeDrawable
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -39,6 +40,11 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.action_global_qrScannerFragment)
         }
 
+        try {
+            throw RuntimeException("Тестовая ошибка для Crashlytics")
+        } catch (e: Exception) {
+            FirebaseCrashlytics.getInstance().recordException(e)
+        }
 
         if (navHostFragment != null) {
             navController = navHostFragment.navController
@@ -60,11 +66,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-
-
         } else {
             Log.e("MainActivity", "NavHostFragment is null")
         }
     }
-
 }
