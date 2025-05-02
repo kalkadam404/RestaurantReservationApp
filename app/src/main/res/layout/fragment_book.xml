@@ -9,26 +9,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="16dp"
         android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="4dp"
-            android:backgroundTint="@color/dark_main"
-            android:layout_marginBottom="15dp"
-            app:shapeAppearanceOverlay="@style/BottomRoundedCard">
+            android:background="@color/white"
+            android:padding="16dp">
 
             <TextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:paddingVertical="10dp"
+                android:text="История"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_gravity="center"
-                android:text="История Бронирование" />
-        </com.google.android.material.card.MaterialCardView>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- RecyclerView section -->
         <androidx.recyclerview.widget.RecyclerView
@@ -48,6 +49,7 @@
             android:layout_gravity="center"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
+            android:layout_marginBottom="10dp"
             app:cardBackgroundColor="@color/white">
 
             <LinearLayout

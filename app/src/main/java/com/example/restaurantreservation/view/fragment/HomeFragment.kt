@@ -59,6 +59,10 @@ class HomeFragment : Fragment() {
         productViewModel.fetchProductList()
         bannerViewModel.fetchBannerList()
 
+        binding.btnSeeAllRestaurants.setOnClickListener {
+            findNavController().navigate(R.id.action_home_fragment_to_restaurantsListFragment)
+        }
+
         val helpQuestionLayout = binding.root.findViewById<View>(R.id.ask_question_layout)
         helpQuestionLayout.setOnClickListener {
             // Навигация к экрану службы поддержки (HelpScreen)

@@ -23,6 +23,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_fragment_to_restaurantsListFragment"
+            app:destination="@id/restaurantsListFragment" />
     </fragment>
 
     <fragment
@@ -97,6 +100,14 @@
         android:id="@+id/helpFragment"
         android:name="com.example.restaurantreservation.view.fragment.HelpFragment"
         android:label="HelpFragment" />
+    <fragment
+        android:id="@+id/restaurantsListFragment"
+        android:name="com.example.restaurantreservation.view.fragment.RestaurantsListFragment"
+        android:label="RestaurantsListFragment" >
+        <action
+            android:id="@+id/action_restaurantsListFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
 
 
 </navigation>

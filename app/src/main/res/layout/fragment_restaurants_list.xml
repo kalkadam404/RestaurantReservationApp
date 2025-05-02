@@ -1,56 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/restaurantsListLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/gray"
     android:paddingTop="16dp">
 
-    <!-- Toolbar -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:layout_marginBottom="15dp"
         android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/backIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/icon_left"
+            android:contentDescription="Назад"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Меню"
+            android:text="Рестораны"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Category RecyclerView (horizontal list of buttons) -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productTypeRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="8dp"
-        android:paddingStart="12dp"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:scrollbars="none"
-        android:contentDescription="Список категорий"
-        tools:listitem="@layout/item_category_button" />
-
-    <!-- Main menu items RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/menuRecycler"
+        android:id="@+id/recyclerViewRestaurants"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         android:clipToPadding="false"
-        android:background="@color/gray"
-        android:contentDescription="Список блюд"
-        tools:listitem="@layout/item_dish_category" />
-
+        android:paddingBottom="12dp"/>
 </LinearLayout>
