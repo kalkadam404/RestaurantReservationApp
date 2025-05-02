@@ -1,6 +1,7 @@
 package com.example.restaurantreservation.view.fragment
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,10 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
+    private val sharedPref by lazy {
+        requireContext().getSharedPreferences("auth", Context.MODE_PRIVATE)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,22 +31,20 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sharedPref = requireContext().getSharedPreferences("auth", Context.MODE_PRIVATE)
-        val isLoggedIn = sharedPref.getBoolean("is_logged_in", false)
-
-        if (!isLoggedIn) {
+        if (!sharedPref.getBoolean("is_logged_in", false)) {
             findNavController().navigate(R.id.loginFragment)
         }
 
         binding.btnLogout.setOnClickListener {
-            sharedPref.edit().clear().apply()
+            sharedPref.clearAndApply()
             findNavController().navigate(R.id.loginFragment)
         }
     }
+
+    private fun SharedPreferences.clearAndApply() = edit().clear().apply()
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
-
