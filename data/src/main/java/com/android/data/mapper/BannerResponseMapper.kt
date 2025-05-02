@@ -1,7 +1,7 @@
 package com.android.data.mapper
 
-import com.android.data.model.BannerEntity
-import com.android.data.model.BannerResponse
+import com.android.data.model.banner.BannerEntity
+import com.android.data.model.banner.BannerResponse
 import com.android.domain.model.Banner
 
 val BannerResponseMapper: (BannerResponse) -> Banner = { response ->

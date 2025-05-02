@@ -1,4 +1,6 @@
-package com.android.data.model
+package com.android.data.model.restaurant
+
+import com.android.data.model.city.CityResponse
 
 data class RestaurantResponse (
     val id: Int,

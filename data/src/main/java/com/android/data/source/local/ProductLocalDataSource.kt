@@ -1,6 +1,6 @@
 package com.android.data.source.local
 
-import com.android.data.model.ProductEntity
+import com.android.data.model.product.ProductEntity
 import com.android.data.source.local.dao.ProductDao
 
 class ProductLocalDataSource (private val dao: ProductDao){
