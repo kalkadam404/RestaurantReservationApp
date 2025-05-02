@@ -85,7 +85,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupPopularDishesSection() {
-        dishAdapter = DishAdapter()
+        dishAdapter = DishAdapter { product ->
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToDishDetailFragment(product)
+            findNavController().navigate(action)
+        }
         binding.popularDishesRecycler.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.popularDishesRecycler.adapter = dishAdapter

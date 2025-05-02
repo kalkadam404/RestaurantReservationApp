@@ -1,5 +1,7 @@
 package com.android.domain.model
 
+import java.io.Serializable
+
 data class Product(
     val id: Int,
     val name: String,
@@ -16,4 +18,4 @@ data class Product(
     val carbohydrates: Float?,
     val price: Float?,
     val available: Boolean?
-)
+) : Serializable

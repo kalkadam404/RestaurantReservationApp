@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.restaurantreservation.databinding.ActivityMainBinding
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         val badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.book_fragment)
         badgeDrawable.setNumber(4)
         badgeDrawable.setVisible(true)
+
+        binding.fab.setOnClickListener {
+            val navController = findNavController(R.id.nav_host_fragment)
+            navController.navigate(R.id.action_global_qrScannerFragment)
+        }
+
 
         if (navHostFragment != null) {
             navController = navHostFragment.navController

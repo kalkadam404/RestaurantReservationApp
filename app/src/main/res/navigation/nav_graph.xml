@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_home_fragment_to_restaurantDetailFragment"
             app:destination="@id/restaurantDetailFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_dishDetailFragment"
+            app:destination="@id/dishDetailFragment" />
     </fragment>
 
     <fragment
@@ -67,5 +70,22 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/qrScannerFragment"
+        android:name="com.example.restaurantreservation.view.fragment.QrScannerFragment"
+        android:label="QrScannerFragment"/>
+
+    <action
+        android:id="@+id/action_global_qrScannerFragment"
+        app:destination="@id/qrScannerFragment" />
+    <fragment
+        android:id="@+id/dishDetailFragment"
+        android:name="com.example.restaurantreservation.view.fragment.DishDetailFragment"
+        android:label="DishDetailFragment" >
+        <argument
+            android:name="product"
+            app:argType="com.android.domain.model.Product" />
+    </fragment>
+
 
 </navigation>

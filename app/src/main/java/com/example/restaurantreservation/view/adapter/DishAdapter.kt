@@ -9,7 +9,7 @@ import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.ItemDishBinding
 import com.example.restaurantreservation.view.utils.ProductItemCallBack
 
-class DishAdapter :
+class DishAdapter(private val onDishClick: (Product) -> Unit) :
     ListAdapter<Product, DishAdapter.DishViewHolder>(ProductItemCallBack()) {
 
     inner class DishViewHolder(val binding: ItemDishBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root)
@@ -33,6 +33,9 @@ class DishAdapter :
                     .into(dishImage)
             } else {
                 dishImage.setImageResource(R.drawable.restaurant1)
+            }
+            root.setOnClickListener {
+                onDishClick(item)
             }
         }
     }

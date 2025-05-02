@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:barcode="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.journeyapps.barcodescanner.CompoundBarcodeView
+        android:id="@+id/barcodeScanner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        barcode:zxing_scanner_layout="@layout/zxing_barcode_scanner" />
+</LinearLayout>
