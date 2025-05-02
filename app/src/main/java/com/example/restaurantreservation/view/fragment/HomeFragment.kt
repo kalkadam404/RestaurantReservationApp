@@ -58,6 +58,13 @@ class HomeFragment : Fragment() {
         restaurantViewModel.fetchRestaurantList()
         productViewModel.fetchProductList()
         bannerViewModel.fetchBannerList()
+
+        val helpQuestionLayout = binding.root.findViewById<View>(R.id.ask_question_layout)
+        helpQuestionLayout.setOnClickListener {
+            // Навигация к экрану службы поддержки (HelpScreen)
+            findNavController().navigate(R.id.action_homeFragment_to_helpFragment)
+        }
+
     }
 
     private fun setupBannerSection() {
