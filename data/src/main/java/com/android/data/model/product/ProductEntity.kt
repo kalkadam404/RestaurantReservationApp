@@ -15,9 +15,9 @@ data class ProductEntity (
     val description_ru: String?,
     val description_kz: String?,
     val calories: Float?,
-    val proteins: Float?,
-    val fats: Float?,
-    val carbohydrates: Float?,
-    val price: Float?,
+    val proteins: String?,
+    val fats: String?,
+    val carbohydrates: String?,
+    val price: String?,
     val is_available: Boolean?
 )

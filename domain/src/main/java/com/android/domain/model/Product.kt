@@ -13,9 +13,9 @@ data class Product(
     val ru_description: String?,
     val kz_description: String?,
     val calories: Float?,
-    val proteins: Float?,
-    val fats: Float?,
-    val carbohydrates: Float?,
-    val price: Float?,
+    val proteins: String?,
+    val fats: String?,
+    val carbohydrates: String?,
+    val price: String?,
     val available: Boolean?
 ) : Serializable

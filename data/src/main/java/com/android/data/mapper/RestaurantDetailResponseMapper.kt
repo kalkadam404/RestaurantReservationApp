@@ -1,12 +1,12 @@
 package com.android.data.mapper
 
 
+import com.android.data.model.restaurant.RestaurantDetailsResponse
 import com.android.data.model.restaurant.RestaurantEntity
-import com.android.data.model.restaurant.RestaurantResponse
 
 import com.android.domain.model.Restaurant
 
-val RestaurantResponseMapper: (RestaurantResponse) -> Restaurant = { response ->
+val RestaurantDetailResponseMapper: (RestaurantDetailsResponse) -> Restaurant = { response ->
     Restaurant(
         id = response.id,
         imageRes = response.photo,
@@ -17,7 +17,7 @@ val RestaurantResponseMapper: (RestaurantResponse) -> Restaurant = { response ->
     )
 }
 
-val localRestaurantResponseMapper: (RestaurantEntity) -> Restaurant = { response ->
+val localRestaurantDetailResponseMapper: (RestaurantEntity) -> Restaurant = { response ->
     Restaurant(
         id = response.id,
         imageRes = response.imageUrl,
@@ -28,7 +28,7 @@ val localRestaurantResponseMapper: (RestaurantEntity) -> Restaurant = { response
     )
 }
 
-val restaurantToRestaurantEntityMapper: (Restaurant) -> RestaurantEntity = { restaurant ->
+val restaurantDetailToRestaurantDetailEntityMapper: (Restaurant) -> RestaurantEntity = { restaurant ->
     RestaurantEntity(
         id = restaurant.id,
         title = restaurant.name,

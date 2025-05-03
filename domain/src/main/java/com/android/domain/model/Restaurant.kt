@@ -3,7 +3,7 @@ package com.android.domain.model
 import java.io.Serializable
 
 data class Restaurant(
-    val id: String,
+    val id: Int,
     val imageRes: String?,
     val name: String,
     val restaurantPlace: String,

@@ -87,7 +87,7 @@
         app:destination="@id/qrScannerFragment" />
     <fragment
         android:id="@+id/dishDetailFragment"
-        android:name="com.example.restaurantreservation.view.fragment.DishDetailFragment"
+        android:name="com.example.restaurantreservation.view.fragment.ProductDetailFragment"
         android:label="DishDetailFragment" >
         <argument
             android:name="product"

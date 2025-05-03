@@ -21,7 +21,7 @@ import com.android.data.source.local.dao.RestaurantDao
     BannerEntity::class,
     ReservationEntity::class,
     ProductTypeEntity::class],
-    version = 6)
+    version = 8)
 
 internal abstract class AppDatabase : RoomDatabase() {
     abstract fun restaurantDao(): RestaurantDao

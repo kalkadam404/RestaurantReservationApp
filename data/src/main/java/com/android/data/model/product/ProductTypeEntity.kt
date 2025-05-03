@@ -6,5 +6,5 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "MenuType")
 data class ProductTypeEntity (
     @PrimaryKey val id: Int,
-    val name: String?
+    val name: String
 )
