@@ -6,34 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!-- Image Carousel -->
-    <androidx.viewpager2.widget.ViewPager2
+    <!-- ImageView for displaying a single image -->
+    <ImageView
         android:id="@+id/imageCarousel"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Restaurant Image"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
-        android:id="@+id/spring_dots_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:dampingRatio="0.5"
-        app:dotsColor="@color/selected_color"
-        app:dotsStrokeColor="@color/dots_color"
-        app:dotsCornerRadius="8dp"
-        app:dotsSize="10dp"
-        app:dotsSpacing="6dp"
-        app:dotsStrokeWidth="2dp"
-        app:stiffness="300"
-
-        app:layout_constraintBottom_toTopOf="@id/contentCard"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        android:layout_marginBottom="10dp"/>
-
 
     <!-- Back Button -->
     <ImageView
@@ -45,9 +27,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp"
         android:contentDescription="Back" />
-
-    <!-- Favorite Button -->
-
 
     <!-- Content Card -->
     <FrameLayout
@@ -62,14 +41,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <!-- Title and Price -->
+            <!-- Title and Location -->
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -82,6 +60,7 @@
                     android:layout_weight="1">
 
                     <TextView
+                        android:id="@+id/restaurantName"
                         android:text="Candy Bar"
                         android:textStyle="bold"
                         android:textSize="18sp"
@@ -90,13 +69,13 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
+                        android:id="@+id/restaurantLocation"
                         android:text="Проспект Абая, 46а Алматы"
                         android:textSize="14sp"
                         android:textColor="#666"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- Rating & Distance -->
@@ -113,20 +92,25 @@
                     android:src="@drawable/star"/>
 
                 <TextView
+                    android:id="@+id/restaurantRating"
                     android:text="5.0"
                     android:textSize="14sp"
                     android:textColor="#444"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
                 <TextView
+                    android:id="@+id/restaurantRatingLabel"
                     android:text="Рейтинг"
                     android:textSize="14sp"
                     android:textColor="#444"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_height="wrap_content" />
+
                 <TextView
+                    android:id="@+id/restaurantReviews"
                     android:text="(20 отзыв)"
                     android:textSize="14sp"
                     android:textColor="#444"
@@ -135,7 +119,7 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-
+            <!-- Restaurant & Delivery Info -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,15 +148,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
+                            android:id="@+id/restaurantType"
                             android:text="Ресторан"
                             android:textSize="14sp"
                             android:textColor="#444"
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
+
                         <TextView
-                            android:text="12:00 - 23:59"
+                            android:id="@+id/restaurantOpenHour"
+                            android:text="12:00"
+                            android:textSize="14sp"
+                            android:textColor="#444"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/restaurantCloseHour"
+                            android:text="23:59"
                             android:textSize="14sp"
                             android:textColor="#444"
                             android:layout_marginLeft="5dp"
@@ -206,14 +203,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
+                            android:id="@+id/deliveryType"
                             android:text="Доставка"
                             android:textSize="14sp"
                             android:textColor="#444"
                             android:layout_marginLeft="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
+
                         <TextView
+                            android:id="@+id/deliveryHours"
                             android:text="12:00 - 23:00"
                             android:textSize="14sp"
                             android:textColor="#444"
@@ -222,15 +223,11 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
-
-
-
-
 
             <!-- Description -->
             <TextView
+                android:id="@+id/restaurantDescriptionLabel"
                 android:text="Описание"
                 android:textStyle="bold"
                 android:textSize="16sp"
@@ -239,16 +236,17 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/restaurantDescription"
                 android:text="@string/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textColor="#666"
                 android:textSize="14sp" />
-
         </LinearLayout>
     </FrameLayout>
 
+    <!-- Booking Button -->
     <android.widget.Button
         android:id="@+id/btn_book"
         android:text="Забронировать"
