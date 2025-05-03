@@ -8,8 +8,8 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="345dp"
+        android:layout_height="345dp"
         android:src="@drawable/onboard1"/>
 
     <TextView
