@@ -44,17 +44,23 @@ class RestaurantDetailFragment : Fragment() {
             when (uiState) {
                 is RestaurantDetailUI.Loading -> {
                     // Show loading state
-
+                    binding.progressBar.visibility = View.VISIBLE
                 }
                 is RestaurantDetailUI.Success -> {
+                    // Hide loading state
+                    binding.progressBar.visibility = View.GONE
                     // Display restaurant details
                     displayRestaurantDetails(uiState.restaurantDetail)
                 }
                 is RestaurantDetailUI.Error -> {
+                    // Hide loading state
+                    binding.progressBar.visibility = View.GONE
                     // Show error message
                     Toast.makeText(requireContext(), "Error loading restaurant details: ${uiState.message}", Toast.LENGTH_SHORT).show()
                 }
                 is RestaurantDetailUI.Empty -> {
+                    // Hide loading state
+                    binding.progressBar.visibility = View.GONE
                     // Handle empty state
                     Toast.makeText(requireContext(), "No restaurant details available", Toast.LENGTH_SHORT).show()
                 }

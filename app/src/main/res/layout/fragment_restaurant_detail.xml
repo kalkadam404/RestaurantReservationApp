@@ -28,6 +28,32 @@
         android:layout_margin="16dp"
         android:contentDescription="Back" />
 
+    <!-- Progress Bar (Visible when loading data) -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Error TextView -->
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Error loading data"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
     <!-- Content Card -->
     <FrameLayout
         android:id="@+id/contentCard"
@@ -39,13 +65,13 @@
         android:clipToOutline="true"
         app:layout_constraintTop_toBottomOf="@id/imageCarousel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"/>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="16dp"/>
 
             <!-- Title and Location -->
             <LinearLayout
@@ -239,26 +265,6 @@
                 android:id="@+id/restaurantDescription"
                 android:text="@string/description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="#666"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <!-- Booking Button -->
-    <android.widget.Button
-        android:id="@+id/btn_book"
-        android:text="Забронировать"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="16dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/btn_rnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

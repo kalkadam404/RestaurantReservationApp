@@ -97,7 +97,7 @@ val ProductModule = module {
 
     single<NetworkConfig> {
         NetworkConfig(
-            baseUrl = "https://epicure-wvby.onrender.com/",
+            baseUrl = "http://10.0.2.2:8000/",
             timeout = 60L,
             interceptors = listOf()
         )

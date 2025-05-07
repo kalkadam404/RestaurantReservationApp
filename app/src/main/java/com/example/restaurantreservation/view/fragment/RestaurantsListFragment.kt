@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.domain.model.Restaurant
-import com.example.restaurantreservation.R
 import com.example.restaurantreservation.databinding.FragmentRestaurantsListBinding
 import com.example.restaurantreservation.view.adapter.RestaurantAdapter
 
@@ -28,11 +27,11 @@ class RestaurantsListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view,savedInstanceState)
 
         val restaurantList = listOf(
             Restaurant(
-                id = "1",
+                id = 1,
                 imageRes = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/38/b9/3f/getlstd-property-photo.jpg?w=600&h=-1&s=1",
                 name = "La Piazza",
                 restaurantPlace = "г. Алматы, ул. Абая 44",
@@ -40,7 +39,7 @@ class RestaurantsListFragment : Fragment() {
                 closing = "23:00"
             ),
             Restaurant(
-                id = "2",
+                id = 2,
                 imageRes = "https://restolife.kz/upload/information_system_6/1/6/0/item_16046/information_items_property_29882.jpg",
                 name = "Tokyo Sushi",
                 restaurantPlace = "г. Нур-Султан, пр. Тауельсиздик 17",
@@ -48,7 +47,7 @@ class RestaurantsListFragment : Fragment() {
                 closing = "22:00"
             ),
             Restaurant(
-                id = "3",
+                id = 3,
                 imageRes = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/19/75/ca/navat.jpg?w=600&h=-1&s=1",
                 name = "Burger House",
                 restaurantPlace = "г. Шымкент, ул. Байтурсынова 12",
@@ -56,7 +55,7 @@ class RestaurantsListFragment : Fragment() {
                 closing = "01:00"
             ),
             Restaurant(
-                id = "4",
+                id = 4,
                 imageRes = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/38/f3/45/caption.jpg?w=600&h=400&s=1",
                 name = "Восточная сказка",
                 restaurantPlace = "г. Караганда, ул. Ермекова 5",
